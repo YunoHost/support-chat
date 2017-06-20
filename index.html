@@ -141,9 +141,10 @@
 			conn.connect(host, null, handle_connection_status, 50);
 		}
 		
-		function nickname_entered()
+		function enter()
 		{
 			nick = document.getElementById('nickentry').value;
+			room = document.getElementById('roomchoice').value + "@conference.yunohost.org";
 			start_connection();
 		}
 
@@ -191,7 +192,13 @@
 	<div id="nickchoose">
 		<div id="nickentryline">
 			<p>Enter a name or just click <b>Enter</b> to join the chatroom</p>
-			<p>Nickname: <input id="nickentry" type="text" value="" />&nbsp;<input style="font-weight:bold;" type="submit" value="Enter" onclick='nickname_entered()' /></p>
+			<p>Nickname: <input id="nickentry" type="text" value="" /></p>
+			<p>Room: <select id="roomchoice"/>
+				 	<option value="support">Support / Help</option>
+				 	<option value="dev">Developpers</option>
+				 	<option value="apps">App packagers</option>
+				 </select></p>
+			<p><input style="font-weight:bold;" type="submit" value="Enter" onclick='enter()' /></p>
 		</div>
 	</div>
 
